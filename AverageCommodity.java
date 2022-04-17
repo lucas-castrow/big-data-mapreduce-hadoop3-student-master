@@ -65,39 +65,17 @@ public class AverageCommodity {
             // Quebrando em campos
             String campos[] = linha.split(";");
 
-
-            if(!campos[1].equals("year")) {
+            if(!campos[1].equals("year") && (!campos[1].isEmpty()) && (!campos[5].isEmpty())) {
                 // obtendo a temperatura
-                double unit = Double.parseDouble(campos[6]);
+                double unit = Double.parseDouble(campos[5]);
                 String year = campos[1];
 
-                // emitir (chave, valor) -> ("media", (n=1, sum=temperatura))
-                con.write(new Text("media"), new PerYearAvgCommodity(1, unit));
                 con.write(new Text(year), new PerYearAvgCommodity(1, unit));
             }
 
         }
     }
-
-    public static class CombineForAverage extends Reducer<Text, PerYearAvgCommodity,
-            Text, PerYearAvgCommodity>{
-        public void reduce(Text key, Iterable<PerYearAvgCommodity> values, Context con)
-                throws IOException, InterruptedException {
-            // O objetivo deste combiner é SOMAR os Ns e as SOMAS parciais
-            int totalN = 0;
-            double totalSoma = 0.0;
-            for(PerYearAvgCommodity o : values){
-                totalN += o.getNumber();
-                totalSoma += o.getSum();
-            }
-
-            // enviando do combiner para o sort/shuffle
-            con.write(key, new PerYearAvgCommodity(totalN, totalSoma));
-
-        }
-    }
-
-
+    
     public static class ReduceForAverage extends Reducer<Text, PerYearAvgCommodity,
             Text, DoubleWritable> {
         public void reduce(Text key, Iterable<PerYearAvgCommodity> values, Context con)
