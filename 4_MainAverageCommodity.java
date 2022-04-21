@@ -65,9 +65,9 @@ public class 4_MainAverageCommodity {
             // Quebrando em campos
             String campos[] = linha.split(";");
 
-            if(!campos[1].equals("year") && (!campos[1].isEmpty()) && (!campos[6].isEmpty())) {
+            if(!campos[1].equals("year") && (!campos[1].isEmpty()) && (!campos[5].isEmpty())) {
                 // obtendo a temperatura
-                double unit = Double.parseDouble(campos[6]);
+                double unit = Double.parseDouble(campos[5]);
                 String year = campos[1];
 
                 con.write(new Text(year), new PerYearAvgCommodity(1, unit));
