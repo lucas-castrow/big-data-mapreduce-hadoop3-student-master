@@ -14,7 +14,7 @@ import org.apache.log4j.BasicConfigurator;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class MostCommercializedCommodity{
+public class 7_MainMostCommercializedCommodity{
 
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
         BasicConfigurator.configure();
@@ -34,7 +34,7 @@ public class MostCommercializedCommodity{
         Job j = new Job(c, "media");
 
         // Registro de classes
-        j.setJarByClass(MostCommercializedCommodity.class);
+        j.setJarByClass(7_MainMostCommercializedCommodity.class);
         j.setMapperClass(MapEtapaA.class);
         j.setReducerClass(ReduceEtapaA.class);
 
