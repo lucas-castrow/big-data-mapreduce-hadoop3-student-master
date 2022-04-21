@@ -14,7 +14,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.log4j.BasicConfigurator;
 import java.io.IOException;
 
-public class MaxMinMeanPrice {
+public class 6_MainMaxMinMeanPrice {
 
     public static void main(String[] args) throws Exception {
         BasicConfigurator.configure();
@@ -32,7 +32,7 @@ public class MaxMinMeanPrice {
         Job j = new Job(c, "maxminmean");
 
         // Registro de classes
-        j.setJarByClass(MaxMinMeanPrice.class);
+        j.setJarByClass(6_MainMaxMinMeanPrice.class);
         j.setMapperClass(MapForAverage.class);
         j.setReducerClass(ReduceForAverage.class);
 //        j.setCombinerClass(CombineForAverage.class);
