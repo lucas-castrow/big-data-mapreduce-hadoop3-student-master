@@ -13,7 +13,7 @@ import org.apache.log4j.BasicConfigurator;
 
 import java.io.IOException;
 
-public class TransactionsPerYear {
+public class 2_MainTransactionsPerYear {
 
     public static void main(String args[]) throws IOException,
             ClassNotFoundException,
@@ -32,7 +32,7 @@ public class TransactionsPerYear {
         Job j = new Job(c, "ano");
 
         // Registro de classes
-        j.setJarByClass(TransactionsPerYear.class);
+        j.setJarByClass(2_MainTransactionsPerYear.class);
         j.setMapperClass(MapForAverage.class);
         j.setReducerClass(ReduceForAverage.class);
 //        j.setCombinerClass(CombineForAverage.class);
