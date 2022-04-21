@@ -13,7 +13,7 @@ import org.apache.log4j.BasicConfigurator;
 
 import java.io.IOException;
 
-public class AverageSpecificCommodity {
+public class 5_MainAverageSpecificCommodity {
 
     public static void main(String args[]) throws IOException,
             ClassNotFoundException,
@@ -32,7 +32,7 @@ public class AverageSpecificCommodity {
         Job j = new Job(c, "media");
 
         // Registro de classes
-        j.setJarByClass(AverageSpecificCommodity.class);
+        j.setJarByClass(5_MainAverageSpecificCommodity.class);
         j.setMapperClass(MapForAverage.class);
         j.setReducerClass(ReduceForAverage.class);
 //        j.setCombinerClass(CombineForAverage.class);
